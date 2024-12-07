@@ -25,7 +25,10 @@ namespace Tidalwav.Editor
         [MenuItem("Window/Audio/WAV Loop Editor")]
         public static void Open()
         {
-            GetWindow<WavLoopEditorWindow>().Show();
+            EditorWindow window = GetWindow<WavLoopEditorWindow>();
+            window.position = new Rect(500,300, 500, 330);
+
+            window.Show();
         }
 
         private void OnEnable()
@@ -155,6 +158,8 @@ namespace Tidalwav.Editor
 
                         startTime = EditorGUILayout.TextField(startTime, GUILayout.MaxWidth(180));
                         endTime = EditorGUILayout.TextField(endTime, GUILayout.MaxWidth(180));
+
+                        
 
                         startSeconds = DurationStringToSeconds(startTime, startSeconds);
                         endSeconds = DurationStringToSeconds(endTime, endSeconds);
@@ -311,10 +316,17 @@ namespace Tidalwav.Editor
 
         private int GetSamplePosition()
         {
-            var audioUtil = Assembly.GetAssembly(typeof(UnityEditor.Editor)).GetType("UnityEditor.AudioUtil");
+            var audioUtil = Assembly.GetAssembly(typeof(UnityEditor.Editor))
+                .GetType("UnityEditor.AudioUtil");
+            //OLD CODE
             // ReSharper disable once PossibleNullReferenceException
-            return (int) audioUtil?.GetMethod("GetClipSamplePosition")?
-                .Invoke(null, new object[] {_wavClip});
+            //return (int)audioUtil?.GetMethod("GetClipSamplePosition")?
+            //    .Invoke(null, new object[] { _wavClip });
+
+            //New Code Apparently Unitys AutioUtils Assembly renamed the method to GetPreviewClipSamplePosition
+            //and have it take no inputs.
+            return (int)audioUtil.GetMethod("GetPreviewClipSamplePosition")
+                .Invoke(null,new object[] {});
         }
 
         private long SecondsToSamples(float seconds)
