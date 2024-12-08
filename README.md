@@ -70,7 +70,7 @@ and end position in an audio editing program like Audacity and enter them in the
 manually.
 
 # WAV Loop Editor for Unity (Updated)
-This fork fixes an issue with the old version that used a mehtod called 
+This fork fixes an issue with the old version that used a method called 
 `GetClipSamplePosition` from Unity's UnityEditor.AudioUtils assmebly. 
 They renamed it to `GetPreviewClipSamplePosition` which this fork applies.
 
