@@ -1,4 +1,4 @@
-# WAV Loop Editor for Unity
+# WAV Loop Editor for Unity (Original README)
 
 Edit .WAV file loop metadata in Unity.
 
@@ -27,7 +27,7 @@ so there won't be any stutters.
 
 ### Package Manager
 Open the Package Manager in *Window - Package Manager*. Click the "+" button and choose
-*Add package from git URL...*. Enter `https://github.com/SkaillZ/tidalwav.git` and click
+*Add package from git URL...*. Enter `https://github.com/KartMakerBrosU/UnityWAVLoopEditor.git` and click
 *Add*.
 
 ### Manual Installation
@@ -61,13 +61,18 @@ Loading loops from other tools is supported. Since Unity only uses the first loo
 WAV metadata, you can delete the other loops in a list to choose the one you want to use
 if more than one loop is present.
 
-## Known issues
+## Known issues ()
 
 * Loops in WAV files that were added in other programs might not show up correctly. 
 * Finding a perfect start and end position is a little finicky due to the limitations
 of Unity's AudioClip preview feature, so it's currently easier to find the exact start
 and end position in an audio editing program like Audacity and enter them in the tool
 manually.
+
+# WAV Loop Editor for Unity (Updated)
+This fork fixes an issue with the old version that used a mehtod called 
+`GetClipSamplePosition` from Unity's UnityEditor.AudioUtils assmebly. 
+They renamed it to `GetPreviewClipSamplePosition` which this fork applies.
 
 ## License
 
