@@ -71,7 +71,7 @@ manually.
 
 # WAV Loop Editor for Unity (Updated)
 This fork fixes an issue with the old version that used a method called 
-`GetClipSamplePosition` from Unity's UnityEditor.AudioUtils assmebly. 
+`GetClipSamplePosition` from Unity's UnityEditor.AudioUtils assembly. 
 They renamed it to `GetPreviewClipSamplePosition` which this fork applies.
 
 ## License
